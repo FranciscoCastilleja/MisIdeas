@@ -1,0 +1,57 @@
+---
+import ComponentesAnimados from '../components/ComponentesAnimados.md'
+import EjemploComponente from '../components/EjemploComponente.astro';
+import Header from '../components/Header.astro';
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Mis Ideas - FC | Componentes Animados">
+	<Header/>
+	<main class="grid p-5 w-full h-full place-items-center sm:w-full">
+		<h2 class="text-2xl font-bold text-center">Componentes Animados</h2>
+		<div class="max-w-xs sm:max-w-md md:max-w-lg lg:max-w-3xl">
+			<ComponentesAnimados/>
+		</div>
+        <section id="SectionMain" class="mt-3 max-w-96 w-full sm:max-w-md md:max-w-2xl lg:max-w-3xl">
+            <header class="p-4 bg-gray-800 text-white text-center">
+                <h2>Ejemplo de Componentes Animados</h2>
+            </header>
+            <EjemploComponente/>
+            <EjemploComponente/>
+            <EjemploComponente/>
+            <EjemploComponente/>
+            <footer class="p-4 bg-gray-800 text-white text-center">
+                <p>Footer</p>
+            </footer>
+        </section>
+	</main>
+</Layout>
+
+<script>
+    const sections = document.querySelectorAll('#sec');
+	
+	sections.forEach(function (section, index) {
+		let button = section.querySelector('button') as HTMLButtonElement;
+
+		const estaEnViewport = () => {
+            const rect = button.getBoundingClientRect();
+
+            return (
+                rect.top >= 0 &&
+                rect.left >= 0 &&
+                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+            );
+        };
+
+        if (estaEnViewport()) {
+            button.id = "btn_"+(index+1).toString();
+        }
+
+        document.addEventListener('scroll', () => {
+            if (estaEnViewport()) {
+                button.id = "btn_"+(index+1).toString();
+            }
+        });
+	})
+</script>

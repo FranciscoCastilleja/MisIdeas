@@ -1,0 +1,60 @@
+---
+
+---
+
+<section id="sec">
+    <h2>Contenido del Componente</h2>
+    <button>¡Click me!</button>
+</section>
+
+<style>
+    #sec {
+        display: grid;
+        width: 100%;
+        height: 500px;
+        border: 1px solid black;
+        background-color: #555;
+        place-items: center;
+    }
+
+    button {
+        opacity: 0;
+        padding: 10px 20px;
+        border: 1px solid white;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    #btn_1 {
+        animation: fadeIn 1s ease-out;
+        animation-delay: 300ms;
+        animation-fill-mode: forwards;
+    }
+
+    #btn_2 {
+        animation: fadeIn 1s ease-out;
+        animation-delay: 300ms;
+        animation-fill-mode: forwards;
+    }
+
+    #btn_3 {
+        animation: fadeIn 1s ease-out;
+        animation-delay: 300ms;
+        animation-fill-mode: forwards;
+    }
+
+    #btn_4 {
+        animation: fadeIn 1s ease-out;
+        animation-delay: 300ms;
+        animation-fill-mode: forwards;
+    }
+</style>
